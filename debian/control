@@ -1,0 +1,15 @@
+Source: powerpc-wrs-vxworks-binutils
+Section: devel
+Priority: extra
+Maintainer: Robert Blair Mason Jr. <rbmj@verizon.net>
+Build-Depends: debhelper (>= 8.0.0), zlib1g-dev, binutils-dev
+Standards-Version: 3.9.3
+Homepage: http://www.gnu.org/software/binutils
+
+Package: powerpc-wrs-vxworks-binutils
+Architecture: any
+Depends: ${shlibs:Depends}, binutils-dev
+Description: GNU Binary Utilities for powerpc-wrs-vxworks target
+ This package contains the GNU assembler, linker, and binary utilities
+ for a cross compilation toolchain targeting powerpc-wrs-vxworks.
+
