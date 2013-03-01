@@ -9,8 +9,22 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-SRCDIR=$(CURDIR)
+
+SRCDIR="$(CURDIR)"
 BUILDDIR=$(CURDIR)/../build-powerpc-wrs-vxworks-binutils
+
+ifeq ($(wildcard ../STMP_HOST_32),)
+HOST="x86_64-unknown-linux-gnu"
+else
+ifeq ($(wildcard ../STMP_HOST_64),)
+HOST="i686-pc-linux-gnu"
+else
+HOST=$(shell ./config.guess)
+endif
+endif
+
+BUILD=$(shell ./config.guess)
+TARGET="powerpc-wrs-vxworks"
 
 %:
 	dh $@ 
@@ -20,7 +34,9 @@ override_dh_auto_configure:
 	cd $(BUILDDIR) ; \
 	$(SRCDIR)/configure \
 		--prefix=/usr \
-		--target=powerpc-wrs-vxworks \
+		--target=$(TARGET) \
+		--host=$(HOST) \
+		--build=$(BUILD) \
 		--disable-nls
 
 override_dh_auto_build:
