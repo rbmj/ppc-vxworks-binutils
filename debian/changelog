@@ -1,11 +1,11 @@
-powerpc-wrs-vxworks-binutils (2.23.1-2) unstable; urgency=low
+binutils-powerpc-wrs-vxworks (2.23.1-2) unstable; urgency=low
 
   * Non-maintainer upload.
   * 
 
  -- R Blair Mason (rbmj) <rbmj@verizon.net>  Thu, 17 Oct 2013 13:13:16 -0400
 
-powerpc-wrs-vxworks-binutils (2.23.1-1) unstable; urgency=low
+binutils-powerpc-wrs-vxworks (2.23.1-1) unstable; urgency=low
 
   * Initial release.
 
