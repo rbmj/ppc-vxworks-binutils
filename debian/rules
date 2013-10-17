@@ -9,21 +9,22 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-
-SRCDIR="$(CURDIR)"
-BUILDDIR=$(CURDIR)/../build-powerpc-wrs-vxworks-binutils
+PKGNAME=binutils
+TARGET=powerpc-wrs-vxworks
+PKG=$(PKGNAME)-$(TARGET)
+SRCDIR=$(CURDIR)
+BUILDDIR=$(CURDIR)/../build-$(PKG)
 
 HOST=$(shell cat ../host)
 BUILD=$(shell ./config.guess)
-TARGET="powerpc-wrs-vxworks"
 
 %:
 	dh $@ 
 
 override_dh_auto_configure:
-	[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
-	cd $(BUILDDIR) ; \
-	$(SRCDIR)/configure \
+	[ -d "$(BUILDDIR)" ] || mkdir "$(BUILDDIR)"
+	cd "$(BUILDDIR)" ; \
+	"$(SRCDIR)/configure" \
 		--prefix=/usr \
 		--target=$(TARGET) \
 		--host=$(HOST) \
@@ -31,20 +32,20 @@ override_dh_auto_configure:
 		--disable-nls
 
 override_dh_auto_build:
-	cd $(BUILDDIR) ; \
+	cd "$(BUILDDIR)" ; \
 	make -j4
 
 override_dh_auto_clean:
-	[ -d $(BUILDDIR) ] || mkdir $(BUILDDIR)
-	cd $(BUILDDIR) ; \
+	[ -d "$(BUILDDIR)" ] || mkdir "$(BUILDDIR)"
+	cd "$(BUILDDIR)" ; \
 	[ ! -f Makefile ] || make distclean
 
 override_dh_auto_install:
 	cd $(BUILDDIR) ; \
-	make install DESTDIR="$(SRCDIR)/debian/powerpc-wrs-vxworks-binutils"
+	make install DESTDIR="$(SRCDIR)/debian/$(PKG)"
 	#get lintian & dpkg to shut up and not conflict with regular binutils
-	rm -rf $(SRCDIR)/debian/powerpc-wrs-vxworks-binutils/usr/share/info
-	rm -rf $(SRCDIR)/debian/powerpc-wrs-vxworks-binutils/usr/lib/libiberty.a
+	rm -rf "$(SRCDIR)/debian/$(PKG)/usr/share/info"
+	rm -rf "$(SRCDIR)/debian/$(PKG)/usr/lib/libiberty.a"
 
 override_dh_strip:
 	# do not strip
