@@ -1,7 +1,7 @@
 Source: binutils-powerpc-wrs-vxworks
 Section: devel
 Priority: extra
-Maintainer: Robert Blair Mason Jr. <rbmj@verizon.net>
+Maintainer: R Blair Mason (rbmj) <rbmj@verizon.net>
 Build-Depends: debhelper (>= 8.0.0), zlib1g-dev, binutils-dev
 Standards-Version: 3.9.3
 Homepage: http://www.gnu.org/software/binutils
