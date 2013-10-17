@@ -2,8 +2,8 @@
 
 set -e
 
-DOWNLOAD_URL='http://ftp.gnu.org/gnu/binutils/binutils-2.23.2.tar.gz'
-EXTRACTNAME='binutils-2.23.2'
+DOWNLOAD_URL='http://ftp.gnu.org/gnu/binutils/binutils-2.23.1.tar.gz'
+EXTRACTNAME='binutils-2.23.1'
 
 PKG='binutils'
 TGT='powerpc-wrs-vxworks'
