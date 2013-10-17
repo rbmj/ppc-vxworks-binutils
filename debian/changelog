@@ -1,5 +1,12 @@
+powerpc-wrs-vxworks-binutils (2.23.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * 
+
+ -- R Blair Mason (rbmj) <rbmj@verizon.net>  Thu, 17 Oct 2013 13:13:16 -0400
+
 powerpc-wrs-vxworks-binutils (2.23.1-1) unstable; urgency=low
 
-  * Initial release. (Closes: #XXXXXX)
+  * Initial release.
 
  -- Robert Blair Mason Jr. (rbmj) <rbmj@verizon.net>  Sat, 05 Jan 2013 23:38:11 -0500
